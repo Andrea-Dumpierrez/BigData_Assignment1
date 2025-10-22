@@ -3,17 +3,17 @@ import java.io.IOException;
 
 public class Benchmark {
     public static void main(String[] args) {
-        // Tamaños de matrices que quieres probar (igual que en Python)
+        // Matrix sizes to test (same as in Python)
         int[] sizes = {10, 25, 50, 100, 200, 300, 400, 500, 700};
 
-        // Número de repeticiones por tamaño
+        // Number of repetitions per matrix size
         int repetitions = 7;
 
-        // Archivo CSV para guardar resultados (igual formato que Python)
+        // CSV file to store results (same format as Python)
         String outputFile = "code/java/data/output/results_java.csv";
 
         try (FileWriter writer = new FileWriter(outputFile)) {
-            writer.write("Tamaño matriz,Tiempo promedio (s)\n");
+            writer.write("Matrix size,Average time (s)\n");
 
             for (int n : sizes) {
                 double totalTime = 0;
@@ -26,24 +26,24 @@ public class Benchmark {
                     double[][] result = Matrix.multiply(A, B);
                     long end = System.nanoTime();
 
-                    // Convertir a segundos (igual que en Python)
+                    // Convert to seconds (same as in Python)
                     double elapsedSec = (end - start) / 1e9;
                     totalTime += elapsedSec;
                 }
 
                 double avgTime = totalTime / repetitions;
 
-                // Mostrar resultados en consola
+                // Display results in console
                 System.out.printf("Matrix %dx%d | Avg time: %.5f s%n", n, n, avgTime);
 
-                // Guardar en el archivo CSV
+                // Save results in the CSV file
                 writer.write(n + "," + avgTime + "\n");
             }
 
-            System.out.println("\nResultados guardados en: " + outputFile);
+            System.out.println("\nResults saved in: " + outputFile);
 
         } catch (IOException e) {
-            System.err.println("Error al escribir el archivo CSV: " + e.getMessage());
+            System.err.println("Error writing CSV file: " + e.getMessage());
         }
     }
 }

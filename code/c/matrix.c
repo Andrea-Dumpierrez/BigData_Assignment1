@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Genera una matriz n x n con valores aleatorios entre 0 y 1
+// Generates an n x n matrix with random values between 0 and 1
 double** generateMatrix(int n) {
     double** matrix = malloc(n * sizeof(double*));
     for (int i = 0; i < n; i++) {
@@ -14,7 +14,7 @@ double** generateMatrix(int n) {
     return matrix;
 }
 
-// Multiplica dos matrices cuadradas A y B
+// Multiplies two square matrices A and B
 double** multiply(double** A, double** B, int n) {
     double** C = malloc(n * sizeof(double*));
     for (int i = 0; i < n; i++) {

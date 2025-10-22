@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include "matrix.c"
 
-// Mide el tiempo que tarda en multiplicar dos matrices n x n
+//  Measures the time taken to multiply two n x n matrices
 double measureTime(int n) {
     struct timeval start, stop;
 
@@ -36,11 +36,11 @@ int main() {
 
     FILE *file = fopen("code/c/data/output/results_c.csv", "w");
     if (file == NULL) {
-        printf("Error al crear el archivo CSV.\n");
+        printf("Error creating the CSV file.\n");
         return 1;
     }
 
-    fprintf(file, "Tamaño matriz,Tiempo promedio (s)\n");
+    fprintf(file, "Matrix size,Average time (s)\n");
 
     for (int i = 0; i < numSizes; i++) {
         int n = sizes[i];
@@ -56,6 +56,6 @@ int main() {
     }
 
     fclose(file);
-    printf("\nResultados guardados en: code/c/data/output/results_c.csv\n");
+    printf("\nResults saved in: code/c/data/output/results_c.csv\n");
     return 0;
 }

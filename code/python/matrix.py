@@ -3,7 +3,7 @@ import time
 import sys
 
 def multiply_matrices(n):
-    """Multiplica dos matrices cuadradas de tamaño n y mide el tiempo."""
+    """Multiplies two square matrices of size n and measures the execution time."""
     A = [[random.random() for _ in range(n)] for _ in range(n)]
     B = [[random.random() for _ in range(n)] for _ in range(n)]
     C = [[0 for _ in range(n)] for _ in range(n)]
@@ -21,7 +21,7 @@ def multiply_matrices(n):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Uso: python matrix.py <tamaño_matriz>")
+        print("python matrix.py <matrix_size>")
         sys.exit(1)
 
     n = int(sys.argv[1])
@@ -34,6 +34,6 @@ if __name__ == "__main__":
 
     avg_time = sum(times) / repetitions
 
-    print(f"Tamaño de la matriz: {n}x{n}")
-    print(f"Tiempo promedio de ejecución ({repetitions} repeticiones): {avg_time:.4f} segundos")
+    print(f"Matrix size: {n}x{n}")
+    print(f"Average execution time ({repetitions} repetitions): {avg_time:.4f} seconds")
 
